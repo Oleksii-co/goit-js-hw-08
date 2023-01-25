@@ -5,6 +5,13 @@ const iframe = document.getElementById('vimeo-player');
 const player = new Player(iframe);
 const STORAGE_CURENT_TIME_KEY = 'videoplayer-current-time';
 
+player
+  .setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY))
+  .then(() => {})
+  .catch(() => {
+    player.setCurrentTime(0);
+  });
+
 player.on(
   'timeupdate',
   throttle(function (data) {
@@ -13,12 +20,7 @@ player.on(
   }, 1000)
 );
 
-player
-  .setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY))
-  .then(() => {})
-  .catch(() => {
-    player.setCurrentTime(0);
-  });
+
 
 
 
