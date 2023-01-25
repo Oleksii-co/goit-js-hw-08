@@ -13,9 +13,23 @@ player.on(
   }, 1000)
 );
 
-player
-  .setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY))
-  .then(() => {})
-  .catch(() => {
-    player.setCurrentTime(0);
-  });
+// player
+//   .setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY))
+//   .then(() => {})
+//   .catch(() => {
+//     player.setCurrentTime(0);
+//   });
+
+player.setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY)).then(function(seconds) {
+
+}).catch(function(error) {
+  switch (error.name) {
+      case 'RangeError':
+
+      break;
+
+      default:
+
+          break;
+  }
+});
