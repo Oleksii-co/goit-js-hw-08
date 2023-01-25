@@ -39,5 +39,6 @@ function clearFormSubmit(evt) {
   evt.preventDefault();
   evt.currentTarget.reset();
 
+  console.log(JSON.parse(localStorage.getItem(STORAGE_FORM_KEY)));
   localStorage.removeItem(STORAGE_FORM_KEY);
 }

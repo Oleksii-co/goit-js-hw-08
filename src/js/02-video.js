@@ -13,4 +13,9 @@ player.on(
   }, 1000)
 );
 
-player.setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY));
+player
+  .setCurrentTime(localStorage.getItem(STORAGE_CURENT_TIME_KEY))
+  .then(() => {})
+  .catch(() => {
+    player.setCurrentTime(0);
+  });
